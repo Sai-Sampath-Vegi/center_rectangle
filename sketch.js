@@ -20,8 +20,8 @@ function setup() {
 function update() { }
 
 function draw() {
-	const x = geometry.calcOffSet(windowWidth, rectangleWidth);
-	const y = geometry.calcOffSet(windowHeight, rectangleHeight);
+	const x = geometry.calcOffset(windowWidth, rectangleWidth);
+	const y = geometry.calcOffset(windowHeight, rectangleHeight);
 
 	r.BeginDrawing();
 
