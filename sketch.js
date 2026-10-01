@@ -1,5 +1,5 @@
 const r = require("raylib");
-const geometry = require("./geometryu")
+const geometry = require("./geometry")
 
 const windowWidth = 800;
 const windowHeight = 500;
