@@ -1,33 +1,37 @@
 const r = require("raylib");
 const geometry = require("./geometry")
 
-const windowWidth = 800;
-const windowHeight = 500;
-const windowTitle = "Center Rectangle";
+const window = {
+	width: 800,
+	height: 500,
+	title: "Center Rectangle",
+};
 
 const FPS = 60;
 
-const rectangleWidth = 600;
-const rectangleHeight = 400;
+const rectangle = {
+	width: 600,
+	height: 400,
+};
 
 function running() { return !r.WindowShouldClose(); }
 
 function setup() {
-	r.InitWindow(windowWidth, windowHeight, windowTitle);
+	r.InitWindow(window.width, window.height, window.title);
 	r.SetTargetFPS(FPS);
+
+	rectangle.x = geometry.calcOffset(window.width, rectangle.width);
+	rectangle.y = geometry.calcOffset(window.height, rectangle.height);
 }
 
 function update() { }
 
 function draw() {
-	const x = geometry.calcOffset(windowWidth, rectangleWidth);
-	const y = geometry.calcOffset(windowHeight, rectangleHeight);
-
 	r.BeginDrawing();
 
 	r.ClearBackground(r.BLUE);
 
-	r.DrawRectangle(x, y, rectangleWidth, rectangleHeight, r.WHITE);
+	r.DrawRectangleRec(rectangle, r.WHITE);
 
 	r.EndDrawing();
 }
